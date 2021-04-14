@@ -1,0 +1,7 @@
+server:
+  path: "/bff"
+  port: 8080
+
+client:
+  url:
+    api-first-access: {{data-service}}
