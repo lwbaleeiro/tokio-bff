@@ -5,3 +5,4 @@ server:
 client:
   url:
     api-first-access: {{data-service}}
+    api-forgot-password: {{data-service}}

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 
 @FeignClient(url = "${client.url.api-first-access}",
-        name = "api-first-access",
+        name = "firstAccessClient",
         configuration = FromUrlEncodedClientConfiguration.class)
 public interface FirstAccessClient {
 
@@ -24,10 +24,10 @@ public interface FirstAccessClient {
     @PostMapping(BASE_URL_FIRST_ACCESS + "/validate-access")
     ValidateAccessResponse validateAccess(@RequestBody @Valid ValidateAccessRequest validateAccessRequest);
 
-    @PostMapping("/{code}/validation")
+    @PostMapping("/vcode")
     void createVCode(@PathVariable("code") String code, @RequestBody @Valid CreateVCodeRequest createVCodeRequest);
 
-    @GetMapping("/{code}/validation")
+    @GetMapping("/vcode/{code}/validation")
     ValidateVCodeResponse validateVCode(@PathVariable("code") String code);
 
     @PostMapping(BASE_URL_FIRST_ACCESS)
